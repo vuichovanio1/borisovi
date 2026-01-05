@@ -1,1 +1,606 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пътна Помощ Борисови Ауто | Денонощна Помощ 24/7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #FF6B00;
+            --secondary: #1a1a2e;
+            --accent: #FFD700;
+            --light: #f8f9fa;
+            --dark: #0f0f1e;
+            --gradient: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,107,0,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255,107,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,0,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .emergency-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+            box-shadow: 0 5px 20px rgba(255,107,0,0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .phone-number {
+            font-size: 1.8rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,107,0,0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(255,107,0,0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: #c0c0c0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,107,0,0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255,107,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255,107,0,0.2);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            min-width: 50px;
+        }
+
+        .reviews {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(15, 15, 30, 0.8) 100%);
+            border-radius: 30px;
+            padding: 3rem;
+        }
+
+        .review-card {
+            background: rgba(255,107,0,0.1);
+            border: 1px solid rgba(255,107,0,0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .contact-section {
+            background: var(--gradient);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--secondary);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .emergency-badge {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .phone-number {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="emergency-badge">
+        🚨 ДЕНОНОЩНА ПОМОЩ 24/7
+        <span class="phone-number">📞 0887 999 175</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">🚗 БОРИСОВИ АУТО</div>
+            <h1>Пътна Помощ<br>Когато Имате Нужда</h1>
+            <p class="hero-subtitle">Бърза, надеждна и професионална помощ на пътя 24/7</p>
+            <div class="cta-buttons">
+                <a href="tel:0887999175" class="btn btn-primary">📞 Обади Сега</a>
+                <a href="#services" class="btn btn-secondary">Нашите Услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Нашите Услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Денонощна Пътна Помощ</h3>
+                <p>При аварии, ПТП и всякакви ситуации на пътя и извън него. Винаги на разположение за вас!</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚛</div>
+                <h3>Лицензиран Транспорт</h3>
+                <p>Транспорт на всякакви МПС-та, мотоциклети, ATV и UTV с професионално оборудване.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏎️</div>
+                <h3>Специализирана Платформа</h3>
+                <p>За ниски, спортни и катастрофирали автомобили. Максимална грижа за вашето МПС.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🅿️</div>
+                <h3>Изваждане от Гаражи</h3>
+                <p>Специализирана услуга за изваждане на неподвижни автомобили от подземни гаражи.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⛽</div>
+                <h3>Доставка на Гориво</h3>
+                <p>Останали без гориво? Доставяме гориво директно до вас, където и да сте.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛞</div>
+                <h3>Смяна на Гума</h3>
+                <p>Бърза и професионална смяна на гума на място, за да продължите пътуването си.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔋</div>
+                <h3>Подаване на Ток</h3>
+                <p>Проблеми с акумулатора? Подаваме ток и ви подпомагаме да тръгнете отново.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Извозване на Пътници</h3>
+                <p>Извозване на пътници от авариралия автомобил, бус, ван или джип до безопасно място.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Защо Да Изберете Нас?</h2>
+        <div class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📄</div>
+                    <div>
+                        <strong>Моментални Фактури</strong>
+                        <p>Издаваме фактури на място</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <div>
+                        <strong>ПОС Терминал</strong>
+                        <p>Плащане с карта навсякъде</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <div>
+                        <strong>Revolut</strong>
+                        <p>Бърз превод през Revolut</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <strong>Бърза Реакция</strong>
+                        <p>Пристигаме максимално бързо</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <div>
+                        <strong>Лицензиран</strong>
+                        <p>Официална пътна помощ</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div>
+                        <strong>Професионализъм</strong>
+                        <p>Опитен екип и модерна техника</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Отзиви от Клиенти</h2>
+        <div class="reviews">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Ivan Ivanov</span>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p>Отлична услуга! Бързо реагираха и решиха проблема професионално.</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Мариян Асенов</span>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p>Коректен! Отзова се бързо и свърши чудесна работа! препоръчвам с 2 ръце!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Rositsa Yancheva</span>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p>Много доволна от услугата. Професионално отношение и бърза реакция!</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Марина Ауто</span>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p>Препоръчвам! Надеждна пътна помощ, винаги може да разчитате на тях.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="contact-section">
+            <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Свържете Се с Нас</h2>
+            <p style="font-size: 1.3rem; color: white;">Денонощна помощ - Обадете се сега!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <strong>Телефон</strong>
+                    <a href="tel:0887999175" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 700;">0887 999 175</a>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <strong>Адрес</strong>
+                    <p style="color: white;">ул. „Латин Колев" 1д<br>1000 София, България</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <strong>Работно Време</strong>
+                    <p style="color: white; font-weight: 700;">ДЕНОНОЩНО<br>24/7</p>
+                </div>
+            </div>
+
+            <div class="location-badge">
+                📍 Обслужваме София и околността
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Пътна Помощ "Борисови Ауто" ЕООД. Всички права запазени.</p>
+        <p style="margin-top: 1rem; color: #888;">Лицензирана пътна помощ | Денонощна услуга</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .feature-item, .review-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
