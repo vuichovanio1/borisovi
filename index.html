@@ -161,15 +161,6 @@
             background: var(--primary);
             transform: translateY(-3px);
         }
-        .btn-location {
-            background: var(--green);
-            color: white;
-            box-shadow: 0 10px 30px rgba(40,167,69,0.3);
-        }
-        .btn-location:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(40,167,69,0.5);
-        }
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -284,6 +275,8 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
+            position: relative;
+            z-index: 2;
         }
         .features {
             background: rgba(26, 26, 46, 0.5);
@@ -395,35 +388,19 @@
             margin-top: 3rem;
         }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .logo {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .floating-buttons {
-                gap: 15px;
-            }
-            .floating-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .logo { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .floating-btn { width: 60px; height: 60px; font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
     <div class="floating-buttons">
-        <a href="tel:0887999175" class="floating-btn phone-btn" aria-label="Обадете се">
-            📞
-        </a>
-        <button onclick="sendLocation()" class="floating-btn location-btn" aria-label="Изпратете локация">
-            📍
-        </button>
+        <a href="tel:0887999175" class="floating-btn phone-btn" aria-label="Обадете се">📞</a>
+        <button onclick="sendLocation()" class="floating-btn location-btn" aria-label="Изпратете локация">📍</button>
     </div>
+
     <section class="hero">
         <div class="hero-content">
             <div class="logo">🚗 БОРИСОВИ АУТО</div>
@@ -434,6 +411,7 @@
             </div>
         </div>
     </section>
+
     <section id="services">
         <h2 class="section-title">Нашите Услуги</h2>
         <div class="services-grid">
@@ -479,6 +457,7 @@
             </div>
         </div>
     </section>
+
     <section id="areas">
         <h2 class="section-title">Области на Обслужване</h2>
         <div class="areas-grid">
@@ -493,13 +472,13 @@
                 <a href="trebich.html" class="area-link">Вижте повече за Требич</a>
             </div>
             <div class="area-card">
-                <h3>Пътна Помощ в Илиенци Надежда</h3>
+                <h3>Пътна Помощ в Илиенци</h3>
                 <p>Специализирани услуги за Илиенци, включително транспорт на МПС.</p>
                 <a href="ilienci.html" class="area-link">Вижте повече за Илиенци</a>
             </div>
              <div class="area-card">
                 <h3>Пътна Помощ в Надежда</h3>
-                <p>Специализирани услуги за Илиенци Надежда, включително транспорт на МПС.</p>
+                <p>Специализирани услуги за Надежда, включително транспорт на МПС.</p>
                 <a href="nadejda.html" class="area-link">Вижте повече за Надежда</a>
             </div>
             <div class="area-card">
@@ -530,143 +509,74 @@
             <div class="area-card">
                 <h3>Пътна Помощ в Северна Скоростна Тангента</h3>
                 <p>Бърза помощ по Северна скоростна тангента за аварии и ПТП.</p>
-                <a href="sst.html" class="area-link">Вижте повече за Северна Скоростна Тангента</a>
+                <a href="sst.html" class="area-link">Вижте повече за Тангентата</a>
             </div>
         </div>
     </section>
+
     <section>
         <h2 class="section-title">Защо Да Изберете Нас?</h2>
         <div class="features">
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">📄</div>
-                    <div>
-                        <strong>Моментални Фактури</strong>
-                        <p>Издаваме фактури на място</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💳</div>
-                    <div>
-                        <strong>ПОС Терминал</strong>
-                        <p>Плащане с карта навсякъде</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <div>
-                        <strong>Revolut</strong>
-                        <p>Бърз превод през Revolut</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <div>
-                        <strong>Бърза Реакция</strong>
-                        <p>Пристигаме максимално бързо</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <strong>Лицензиран</strong>
-                        <p>Официална пътна помощ</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔧</div>
-                    <div>
-                        <strong>Професионализъм</strong>
-                        <p>Опитен екип и модерна техника</p>
-                    </div>
-                </div>
+                <div class="feature-item"><div class="feature-icon">📄</div><div><strong>Фактури</strong><p>Издаваме на място</p></div></div>
+                <div class="feature-item"><div class="feature-icon">💳</div><div><strong>ПОС Терминал</strong><p>Плащане с карта</p></div></div>
+                <div class="feature-item"><div class="feature-icon">💰</div><div><strong>Revolut</strong><p>Бърз превод</p></div></div>
+                <div class="feature-item"><div class="feature-icon">⚡</div><div><strong>Бързина</strong><p>Минимално чакане</p></div></div>
+                <div class="feature-item"><div class="feature-icon">✅</div><div><strong>Лиценз</strong><p>Сигурност 100%</p></div></div>
+                <div class="feature-item"><div class="feature-icon">🔧</div><div><strong>Опит</strong><p>Модерна техника</p></div></div>
             </div>
         </div>
     </section>
+
     <section>
         <h2 class="section-title">Отзиви от Клиенти</h2>
         <div class="reviews">
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Ivan Ivanov</span>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
-                <p>Отлична услуга! Бързо реагираха и решиха проблема професионално.</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Мариян Асенов</span>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
-                <p>Коректен! Отзова се бързо и свърши чудесна работа! препоръчвам с 2 ръце!</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Rositsa Yancheva</span>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
-                <p>Много доволна от услугата. Професионално отношение и бърза реакция!</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Марина Ауто</span>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
-                <p>Препоръчвам! Надеждна пътна помощ, винаги може да разчитате на тях.</p>
-            </div>
+            <div class="review-card"><div class="review-header"><span class="reviewer-name">Ivan Ivanov</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Отлична услуга! Бързо реагираха и решиха проблема професионално.</p></div>
+            <div class="review-card"><div class="review-header"><span class="reviewer-name">Мариян Асенов</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Коректен! Отзова се бързо и свърши чудесна работа! препоръчвам с 2 ръце!</p></div>
+            <div class="review-card"><div class="review-header"><span class="reviewer-name">Rositsa Yancheva</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Много доволна от услугата. Професионално отношение и бърза реакция!</p></div>
         </div>
     </section>
+
     <section id="gallery">
         <h2 class="section-title">Галерия</h2>
         <div class="gallery">
-            <img src="images/dark.webp" alt="Пътна помощ в тъмно време" loading="lazy">
-            <img src="images/ive.webp" alt="Транспорт на автомобили" loading="lazy">
+            <img src="images/dark.webp" alt="Пътна помощ София" loading="lazy">
+            <img src="images/ive.webp" alt="Транспорт Борисови" loading="lazy">
             <img src="images/old.webp" alt="Смяна на гуми" loading="lazy">
-            <img src="images/red.webp" alt="Червен автомобил на пътна помощ" loading="lazy">
-            <img src="images/mot.webp" alt="Пътна помощ за мотоциклети" loading="lazy">
-            <img src="images/pik.webp" alt="Пикап транспорт" loading="lazy">
+            <img src="images/red.webp" alt="Репатриране" loading="lazy">
+            <img src="images/mot.webp" alt="Мотоциклети" loading="lazy">
+            <img src="images/pik.webp" alt="Пикап помощ" loading="lazy">
         </div>
     </section>
+
     <section>
         <div class="contact-section">
             <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Свържете Се с Нас</h2>
-            <p style="font-size: 1.3rem; color: white;">Денонощна помощ 24/7</p>
             <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <strong>Телефон</strong>
-                    <a href="tel:0887999175" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 700;">0887 999 175</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <strong>Адрес</strong>
-                    <p style="color: white;">ул. „Латин Колев" 1д<br>1000 София, България</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">🕐</div>
-                    <strong>Работно Време</strong>
-                    <p style="color: white; font-weight: 700;">ДЕНОНОЩНО<br>24/7</p>
-                </div>
-            </div>
-            <div class="location-badge">
-                📍 Обслужваме София, Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента
+                <div class="contact-item">📞 <strong>Телефон</strong><a href="tel:0887999175" style="color: white; font-size: 1.5rem;">0887 999 175</a></div>
+                <div class="contact-item">📍 <strong>Адрес</strong><p style="color: white;">ул. „Латин Колев" 1д, София</p></div>
+                <div class="contact-item">🕐 <strong>24/7</strong><p style="color: white;">ДЕНОНОЩНО</p></div>
             </div>
         </div>
     </section>
+
     <footer>
         <p>© 2026 Пътна Помощ "Борисови Ауто" ЕООД. Всички права запазени.</p>
-        <p style="margin-top: 1rem; color: #888;">Лицензирана пътна помощ | Денонощна услуга в София и околностите</p>
     </footer>
+
     <script>
+        // Важно: Слушаме САМО за линкове, които започват с #
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -675,25 +585,22 @@
                 }
             });
         }, { threshold: 0.1 });
+
         document.querySelectorAll('.service-card, .area-card, .feature-item, .review-card, .gallery img').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
+
         function sendLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
-                    const locationUrl = `https://maps.google.com/?q=${lat},${lon}`;
-                    const smsBody = encodeURIComponent(`Моята локация: ${locationUrl}`);
-                    window.location.href = `sms:0887999175?body=${smsBody}`;
-                }, function(error) {
-                    alert('Не можем да получим вашата локация. Моля, разрешете достъп до локацията.');
-                });
-            } else {
-                alert('Вашият браузър не поддържа геолокация.');
+                    const locationUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+                    window.location.href = `sms:0887999175?body=${encodeURIComponent('Нуждая се от помощ! Моята локация: ' + locationUrl)}`;
+                }, () => alert('Моля, разрешете достъп до локацията.'));
             }
         }
     </script>
