@@ -3,15 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пътна Помощ Борисови Ауто | Денонощна Помощ 24/7</title>
+    <title>Пътна Помощ Борисови Ауто | Денонощна Помощ 24/7 в София и околностите</title>
+    <meta name="description" content="Бърза и надеждна пътна помощ в София, Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента. Денонощни услуги: транспорт на МПС, смяна на гуми, доставка на гориво и още.">
+    <meta name="keywords" content="пътна помощ София, пътна помощ Требич, пътна помощ Илиенци Надежда, пътна помощ Мрамор, пътна помощ Житен, пътна помощ Мировяне, пътна помощ Нови Искър, пътна помощ Подгумер, пътна помощ Северна скоростна тангента, денонощна пътна помощ, транспорт на автомобили, смяна на гуми, доставка на гориво, пътна помощ 24/7">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Пътна Помощ Борисови Ауто | Денонощна Помощ 24/7">
+    <meta property="og:description" content="Професионална пътна помощ в София и околностите: Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента. Бърза реакция, лицензиран транспорт и повече.">
+    <meta property="og:image" content="https://patnapomoshtborisovi.pages.dev/images/dark.webp">
+    <meta property="og:url" content="https://patnapomoshtborisovi.pages.dev">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://patnapomoshtborisovi.pages.dev/images/dark.webp" type="image/webp">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Пътна Помощ Борисови Ауто",
+      "image": "https://patnapomoshtborisovi.pages.dev/images/dark.webp",
+      "telephone": "0887 999 175",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. „Латин Колев\" 1д",
+        "addressLocality": "София",
+        "postalCode": "1000",
+        "addressCountry": "BG"
+      },
+      "openingHours": "24/7",
+      "areaServed": [
+        "София",
+        "Требич",
+        "Илиенци Надежда",
+        "Мрамор",
+        "Житен",
+        "Мировяне",
+        "Нови Искър",
+        "Подгумер",
+        "Северна скоростна тангента"
+      ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary: #FF6B00;
             --secondary: #1a1a2e;
@@ -19,8 +55,8 @@
             --light: #f8f9fa;
             --dark: #0f0f1e;
             --gradient: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+            --green: #28a745;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--dark);
@@ -28,7 +64,6 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-
         .hero {
             position: relative;
             height: 100vh;
@@ -38,7 +73,6 @@
             background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -47,12 +81,10 @@
             background: radial-gradient(circle, rgba(255,107,0,0.1) 0%, transparent 70%);
             animation: pulse 8s ease-in-out infinite;
         }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.5; }
             50% { transform: scale(1.1); opacity: 0.8; }
         }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -60,7 +92,6 @@
             padding: 2rem;
             max-width: 1200px;
         }
-
         .logo {
             font-size: 3.5rem;
             font-weight: 800;
@@ -70,36 +101,30 @@
             margin-bottom: 1rem;
             animation: slideDown 1s ease-out;
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .hero h1 {
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1rem;
             animation: slideUp 1s ease-out 0.2s both;
         }
-
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .hero-subtitle {
             font-size: 1.5rem;
             color: var(--accent);
             margin-bottom: 2rem;
             animation: fadeIn 1s ease-out 0.4s both;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
@@ -107,7 +132,6 @@
             flex-wrap: wrap;
             animation: fadeIn 1s ease-out 0.6s both;
         }
-
         .btn {
             padding: 1.2rem 3rem;
             font-size: 1.1rem;
@@ -119,52 +143,71 @@
             text-decoration: none;
             display: inline-block;
         }
-
         .btn-primary {
             background: var(--gradient);
             color: white;
             box-shadow: 0 10px 30px rgba(255,107,0,0.3);
         }
-
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(255,107,0,0.5);
         }
-
         .btn-secondary {
             background: transparent;
             color: var(--light);
             border: 2px solid var(--primary);
         }
-
         .btn-secondary:hover {
             background: var(--primary);
             transform: translateY(-3px);
         }
-
-        .emergency-badge {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--gradient);
+        .btn-location {
+            background: var(--green);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(40,167,69,0.3);
+        }
+        .btn-location:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(40,167,69,0.5);
+        }
+
+        /* Два плаващи бутона отдолу */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
             z-index: 1000;
-            animation: bounce 2s infinite;
-            box-shadow: 0 5px 20px rgba(255,107,0,0.5);
         }
-
-        @keyframes bounce {
+        .floating-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        .phone-btn {
+            background: var(--gradient);
+            animation-delay: 0s;
+        }
+        .location-btn {
+            background: var(--green);
+            animation-delay: 0.5s;
+        }
+        @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .phone-number {
-            font-size: 1.8rem;
-            display: block;
-            margin-top: 0.5rem;
+            50% { transform: translateY(-15px); }
         }
 
         section {
@@ -172,7 +215,6 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-
         .section-title {
             font-size: 3rem;
             font-weight: 800;
@@ -182,15 +224,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .services-grid {
+        .services-grid, .areas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
-        .service-card {
+        .service-card, .area-card {
             background: rgba(26, 26, 46, 0.8);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,107,0,0.2);
@@ -199,9 +239,9 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
-
-        .service-card::before {
+        .service-card::before, .area-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -212,52 +252,54 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
-        .service-card:hover {
+        .service-card:hover, .area-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
             box-shadow: 0 20px 60px rgba(255,107,0,0.3);
         }
-
-        .service-card:hover::before {
+        .service-card:hover::before, .area-card:hover::before {
             opacity: 0.1;
         }
-
         .service-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
         }
-
-        .service-card h3 {
+        .service-card h3, .area-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--accent);
             position: relative;
             z-index: 1;
         }
-
-        .service-card p {
+        .service-card p, .area-card p {
             color: #c0c0c0;
             position: relative;
             z-index: 1;
         }
-
+        .area-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+        }
         .features {
             background: rgba(26, 26, 46, 0.5);
             border-radius: 30px;
             padding: 3rem;
             margin-top: 3rem;
         }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .feature-item {
             display: flex;
             align-items: center;
@@ -268,23 +310,19 @@
             border: 1px solid rgba(255,107,0,0.2);
             transition: all 0.3s ease;
         }
-
         .feature-item:hover {
             background: rgba(255,107,0,0.2);
             transform: translateX(10px);
         }
-
         .feature-icon {
             font-size: 2rem;
             min-width: 50px;
         }
-
         .reviews {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(15, 15, 30, 0.8) 100%);
             border-radius: 30px;
             padding: 3rem;
         }
-
         .review-card {
             background: rgba(255,107,0,0.1);
             border: 1px solid rgba(255,107,0,0.3);
@@ -292,31 +330,43 @@
             padding: 2rem;
             margin-bottom: 2rem;
         }
-
         .review-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-
         .reviewer-name {
             font-weight: 700;
             color: var(--accent);
         }
-
         .stars {
             color: var(--accent);
             font-size: 1.2rem;
         }
-
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255,107,0,0.2);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
         .contact-section {
             background: var(--gradient);
             border-radius: 30px;
             padding: 4rem;
             text-align: center;
         }
-
         .contact-info {
             display: flex;
             justify-content: center;
@@ -324,19 +374,16 @@
             flex-wrap: wrap;
             margin-top: 2rem;
         }
-
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
         }
-
         .contact-icon {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
-
         .location-badge {
             background: rgba(255,255,255,0.2);
             padding: 1rem 2rem;
@@ -344,109 +391,149 @@
             margin-top: 2rem;
             display: inline-block;
         }
-
         footer {
             text-align: center;
             padding: 2rem;
             background: var(--secondary);
             margin-top: 3rem;
         }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .logo {
                 font-size: 2rem;
             }
-
             .section-title {
                 font-size: 2rem;
             }
-
-            .emergency-badge {
-                font-size: 0.9rem;
-                padding: 0.8rem 1.5rem;
+            .floating-buttons {
+                gap: 15px;
             }
-
-            .phone-number {
-                font-size: 1.3rem;
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="emergency-badge">
-        🚨 ДЕНОНОЩНА ПОМОЩ 24/7
-        <span class="phone-number">📞 0887 999 175</span>
+    <!-- Два плаващи бутона отдолу -->
+    <div class="floating-buttons">
+        <a href="tel:0887999175" class="floating-btn phone-btn" aria-label="Обадете се">
+            📞
+        </a>
+        <button onclick="sendLocation()" class="floating-btn location-btn" aria-label="Изпратете локация">
+            📍
+        </button>
     </div>
 
     <section class="hero">
         <div class="hero-content">
             <div class="logo">🚗 БОРИСОВИ АУТО</div>
             <h1>Пътна Помощ<br>Когато Имате Нужда</h1>
-            <p class="hero-subtitle">Бърза, надеждна и професионална помощ на пътя 24/7</p>
+            <p class="hero-subtitle">Бърза, надеждна и професионална помощ на пътя 24/7 в София, Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента</p>
             <div class="cta-buttons">
-                <a href="tel:0887999175" class="btn btn-primary">📞 Обади Сега</a>
                 <a href="#services" class="btn btn-secondary">Нашите Услуги</a>
             </div>
         </div>
     </section>
-
     <section id="services">
         <h2 class="section-title">Нашите Услуги</h2>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🚨</div>
                 <h3>Денонощна Пътна Помощ</h3>
-                <p>При аварии, ПТП и всякакви ситуации на пътя и извън него. Винаги на разположение за вас!</p>
+                <p>При аварии, ПТП и всякакви ситуации на пътя и извън него. Винаги на разположение за вас в София и околностите!</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🚛</div>
                 <h3>Лицензиран Транспорт</h3>
-                <p>Транспорт на всякакви МПС-та, мотоциклети, ATV и UTV с професионално оборудване.</p>
+                <p>Транспорт на всякакви МПС-та, мотоциклети, ATV и UTV с професионално оборудване в Требич, Илиенци Надежда и други райони.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🏎️</div>
                 <h3>Специализирана Платформа</h3>
-                <p>За ниски, спортни и катастрофирали автомобили. Максимална грижа за вашето МПС.</p>
+                <p>За ниски, спортни и катастрофирали автомобили. Максимална грижа за вашето МПС в Мрамор и Житен.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🅿️</div>
                 <h3>Изваждане от Гаражи</h3>
-                <p>Специализирана услуга за изваждане на неподвижни автомобили от подземни гаражи.</p>
+                <p>Специализирана услуга за изваждане на неподвижни автомобили от подземни гаражи в Мировяне и Нови Искър.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">⛽</div>
                 <h3>Доставка на Гориво</h3>
-                <p>Останали без гориво? Доставяме гориво директно до вас, където и да сте.</p>
+                <p>Останали без гориво? Доставяме гориво директно до вас в Подгумер и Северна скоростна тангента.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🛞</div>
                 <h3>Смяна на Гума</h3>
-                <p>Бърза и професионална смяна на гума на място, за да продължите пътуването си.</p>
+                <p>Бърза и професионална смяна на гума на място, за да продължите пътуването си в София.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🔋</div>
                 <h3>Подаване на Ток</h3>
-                <p>Проблеми с акумулатора? Подаваме ток и ви подпомагаме да тръгнете отново.</p>
+                <p>Проблеми с акумулатора? Подаваме ток и ви подпомагаме да тръгнете отново в околностите.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">👥</div>
                 <h3>Извозване на Пътници</h3>
-                <p>Извозване на пътници от авариралия автомобил, бус, ван или джип до безопасно място.</p>
+                <p>Извозване на пътници от авариралия автомобил, бус, ван или джип до безопасно място в целия район.</p>
             </div>
         </div>
     </section>
-
+    <section id="areas">
+        <h2 class="section-title">Области на Обслужване</h2>
+        <div class="areas-grid">
+            <div class="area-card">
+                <h3>Пътна Помощ в София</h3>
+                <p>Бърза и професионална пътна помощ в центъра на София. Оптимизирано за градски условия.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/sofia" class="area-link">Вижте повече за София</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Требич</h3>
+                <p>Надеждна помощ в Требич с бърза реакция на аварии.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/trebich" class="area-link">Вижте повече за Требич</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Илиенци Надежда</h3>
+                <p>Специализирани услуги за Илиенци Надежда, включително транспорт на МПС.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/ilienci-nadezhda" class="area-link">Вижте повече за Илиенци Надежда</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Мрамор</h3>
+                <p>Професионална помощ в Мрамор за всякакви пътни ситуации.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/mramor" class="area-link">Вижте повече за Мрамор</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Житен</h3>
+                <p>Бърза доставка на гориво и смяна на гуми в Житен.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/zhiten" class="area-link">Вижте повече за Житен</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Мировяне</h3>
+                <p>Изваждане от гаражи и транспорт в Мировяне 24/7.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/mirovyane" class="area-link">Вижте повече за Мировяне</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Нови Искър</h3>
+                <p>Пълна гама услуги за Нови Искър и околностите.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/novi-iskar" class="area-link">Вижте повече за Нови Искър</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Подгумер</h3>
+                <p>Специализирана платформа за спортни автомобили в Подгумер.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/podgumer" class="area-link">Вижте повече за Подгумер</a>
+            </div>
+            <div class="area-card">
+                <h3>Пътна Помощ в Северна Скоростна Тангента</h3>
+                <p>Бърза помощ по Северна скоростна тангента за аварии и ПТП.</p>
+                <a href="https://patnapomoshtborisovi.pages.dev/severna-skorostna-tangenta" class="area-link">Вижте повече за Северна Скоростна Тангента</a>
+            </div>
+        </div>
+    </section>
     <section>
         <h2 class="section-title">Защо Да Изберете Нас?</h2>
         <div class="features">
@@ -458,7 +545,6 @@
                         <p>Издаваме фактури на място</p>
                     </div>
                 </div>
-
                 <div class="feature-item">
                     <div class="feature-icon">💳</div>
                     <div>
@@ -466,7 +552,6 @@
                         <p>Плащане с карта навсякъде</p>
                     </div>
                 </div>
-
                 <div class="feature-item">
                     <div class="feature-icon">💰</div>
                     <div>
@@ -474,7 +559,6 @@
                         <p>Бърз превод през Revolut</p>
                     </div>
                 </div>
-
                 <div class="feature-item">
                     <div class="feature-icon">⚡</div>
                     <div>
@@ -482,7 +566,6 @@
                         <p>Пристигаме максимално бързо</p>
                     </div>
                 </div>
-
                 <div class="feature-item">
                     <div class="feature-icon">✅</div>
                     <div>
@@ -490,7 +573,6 @@
                         <p>Официална пътна помощ</p>
                     </div>
                 </div>
-
                 <div class="feature-item">
                     <div class="feature-icon">🔧</div>
                     <div>
@@ -501,7 +583,6 @@
             </div>
         </div>
     </section>
-
     <section>
         <h2 class="section-title">Отзиви от Клиенти</h2>
         <div class="reviews">
@@ -512,7 +593,6 @@
                 </div>
                 <p>Отлична услуга! Бързо реагираха и решиха проблема професионално.</p>
             </div>
-
             <div class="review-card">
                 <div class="review-header">
                     <span class="reviewer-name">Мариян Асенов</span>
@@ -520,7 +600,6 @@
                 </div>
                 <p>Коректен! Отзова се бързо и свърши чудесна работа! препоръчвам с 2 ръце!</p>
             </div>
-
             <div class="review-card">
                 <div class="review-header">
                     <span class="reviewer-name">Rositsa Yancheva</span>
@@ -528,7 +607,6 @@
                 </div>
                 <p>Много доволна от услугата. Професионално отношение и бърза реакция!</p>
             </div>
-
             <div class="review-card">
                 <div class="review-header">
                     <span class="reviewer-name">Марина Ауто</span>
@@ -538,43 +616,47 @@
             </div>
         </div>
     </section>
-
+    <section id="gallery">
+        <h2 class="section-title">Галерия</h2>
+        <div class="gallery">
+            <img src="images/dark.webp" alt="Пътна помощ в тъмно време - професионална услуга в София и околностите" loading="lazy">
+            <img src="images/ive.webp" alt="Транспорт на автомобили - лицензирана пътна помощ Борисови Ауто" loading="lazy">
+            <img src="images/old.webp" alt="Смяна на гуми за стари автомобили в Требич и Илиенци Надежда" loading="lazy">
+            <img src="images/red.webp" alt="Червен автомобил на пътна помощ в Мрамор и Житен" loading="lazy">
+            <img src="images/mot.webp" alt="Пътна помощ за мотоциклети в Мировяне и Нови Искър" loading="lazy">
+            <img src="images/pik.webp" alt="Пикап транспорт в Подгумер и Северна скоростна тангента" loading="lazy">
+        </div>
+    </section>
     <section>
         <div class="contact-section">
             <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Свържете Се с Нас</h2>
-            <p style="font-size: 1.3rem; color: white;">Денонощна помощ - Обадете се сега!</p>
-            
+            <p style="font-size: 1.3rem; color: white;">Денонощна помощ 24/7</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <strong>Телефон</strong>
                     <a href="tel:0887999175" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 700;">0887 999 175</a>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <strong>Адрес</strong>
                     <p style="color: white;">ул. „Латин Колев" 1д<br>1000 София, България</p>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">🕐</div>
                     <strong>Работно Време</strong>
                     <p style="color: white; font-weight: 700;">ДЕНОНОЩНО<br>24/7</p>
                 </div>
             </div>
-
             <div class="location-badge">
-                📍 Обслужваме София и околността
+                📍 Обслужваме София, Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента
             </div>
         </div>
     </section>
-
     <footer>
         <p>&copy; 2026 Пътна Помощ "Борисови Ауто" ЕООД. Всички права запазени.</p>
-        <p style="margin-top: 1rem; color: #888;">Лицензирана пътна помощ | Денонощна услуга</p>
+        <p style="margin-top: 1rem; color: #888;">Лицензирана пътна помощ | Денонощна услуга в София и околностите</p>
     </footer>
-
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -585,7 +667,6 @@
                 }
             });
         });
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -594,13 +675,28 @@
                 }
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.service-card, .feature-item, .review-card').forEach(el => {
+        document.querySelectorAll('.service-card, .area-card, .feature-item, .review-card, .gallery img').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
+
+        function sendLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const locationUrl = `https://maps.google.com/?q=${lat},${lon}`;
+                    const smsBody = encodeURIComponent(`Моята локация: ${locationUrl}`);
+                    window.location.href = `sms:0887999175?body=${smsBody}`;
+                }, function(error) {
+                    alert('Не можем да получим вашата локация. Моля, разрешете достъп до локацията.');
+                });
+            } else {
+                alert('Вашият браузър не поддържа геолокация.');
+            }
+        }
     </script>
 </body>
 </html>
