@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -280,12 +281,14 @@
         }
         .hero {
             position: relative;
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
             overflow: hidden;
+            padding: 2rem 1rem;
         }
         .hero::before {
             content: '';
@@ -305,9 +308,10 @@
             text-align: center;
             padding: 2rem;
             max-width: 1200px;
+            width: 100%;
         }
         .logo {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -321,90 +325,60 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 800;
             margin-bottom: 1rem;
             animation: slideUp 1s ease-out 0.2s both;
+            line-height: 1.2;
         }
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--accent);
             margin-bottom: 2rem;
             animation: fadeIn 1s ease-out 0.4s both;
+            line-height: 1.6;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .cta-buttons {
+        .social-links {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeIn 1s ease-out 0.6s both;
-        }
-        .btn {
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 10px 30px rgba(255,107,0,0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,107,0,0.5);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--light);
-            border: 2px solid var(--primary);
-        }
-        .btn-secondary:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-            animation: fadeIn 1s ease-out 0.8s both;
+            margin-top: 2rem;
         }
         .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
         .social-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .facebook-btn {
             background: var(--blue);
         }
         .google-btn {
-            background: #4285F4;
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+        }
+        .social-icon {
+            font-size: 1.5rem;
         }
         .floating-buttons {
             position: fixed;
@@ -451,7 +425,7 @@
             margin: 0 auto;
         }
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             text-align: center;
             margin-bottom: 3rem;
@@ -532,34 +506,90 @@
             box-shadow: 0 5px 20px rgba(255,107,0,0.4);
         }
         .features {
-            background: rgba(26, 26, 46, 0.5);
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(255,107,0,0.1) 100%);
             border-radius: 30px;
-            padding: 3rem;
+            padding: 4rem 3rem;
             margin-top: 3rem;
+            border: 2px solid rgba(255,107,0,0.3);
+            box-shadow: 0 20px 60px rgba(255,107,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .features-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .features-intro h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .features-intro p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
         .feature-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255,107,0,0.1);
-            border-radius: 15px;
-            border: 1px solid rgba(255,107,0,0.2);
-            transition: all 0.3s ease;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 2px solid rgba(255,107,0,0.3);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
         .feature-item:hover {
-            background: rgba(255,107,0,0.2);
-            transform: translateX(10px);
+            background: rgba(255,107,0,0.15);
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(255,107,0,0.4);
         }
         .feature-icon {
-            font-size: 2rem;
-            min-width: 50px;
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255,107,0,0.5));
+        }
+        .feature-item strong {
+            font-size: 1.4rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            color: #c0c0c0;
+            font-size: 1.1rem;
         }
         .gallery {
             display: grid;
@@ -615,12 +645,83 @@
             background: var(--secondary);
             margin-top: 3rem;
         }
+        
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .review-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,107,0,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255,107,0,0.3);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stars {
+            color: var(--accent);
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .logo { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-            .floating-btn { width: 60px; height: 60px; font-size: 1.8rem; }
-            .social-btn { width: 45px; height: 45px; font-size: 1.3rem; }
+            .hero {
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
+            .floating-btn { 
+                width: 60px; 
+                height: 60px; 
+                font-size: 1.8rem; 
+            }
+            .floating-buttons {
+                bottom: 15px;
+                gap: 15px;
+            }
+            .social-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .features {
+                padding: 2rem 1.5rem;
+            }
+            .feature-item {
+                padding: 1.5rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .social-links {
+                gap: 1rem;
+            }
+            .social-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .social-icon {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -635,8 +736,16 @@
             <div class="logo">🚗 БОРИСОВИ АУТО</div>
             <h1>Пътна Помощ<br>Когато Имате Нужда</h1>
             <p class="hero-subtitle">Бърза, надеждна и професионална помощ на пътя 24/7 в София, Требич, Илиенци Надежда, Мрамор, Житен, Мировяне, Нови Искър, Подгумер, Северна скоростна тангента</p>
-            <div class="cta-buttons">
-                <a href="#services" class="btn btn-secondary">Нашите Услуги</a>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61572449813260" target="_blank" class="social-btn facebook-btn">
+                    <span class="social-icon">👍</span>
+                    <span>Харесайте ни във Facebook</span>
+                </a>
+                <a href="https://maps.app.goo.gl/SNhyh8RmSehkzkZY0" target="_blank" class="social-btn google-btn">
+                    <span class="social-icon">⭐</span>
+                    <span>Оценете ни в Google</span>
+                </a>
             </div>
         </div>
     </section>
@@ -746,27 +855,57 @@
     <section>
         <h2 class="section-title">Защо Да Изберете Нас?</h2>
         <div class="features">
+            <div class="features-intro">
+                <h3>Вашият Надежден Партньор на Пътя</h3>
+                <p>Годинен опит, модерна техника и професионален екип на ваше разположение 24/7</p>
+            </div>
             <div class="features-grid">
-                <div class="feature-item"><div class="feature-icon">📄</div><div><strong>Фактури</strong><p>Издаваме на място</p></div></div>
-                <div class="feature-item"><div class="feature-icon">💳</div><div><strong>ПОС Терминал</strong><p>Плащане с карта</p></div></div>
-                <div class="feature-item"><div class="feature-icon">💰</div><div><strong>Revolut</strong><p>Бърз превод</p></div></div>
-                <div class="feature-item"><div class="feature-icon">⚡</div><div><strong>Бързина</strong><p>Минимално чакане</p></div></div>
-                <div class="feature-item"><div class="feature-icon">✅</div><div><strong>Лиценз</strong><p>Сигурност 100%</p></div></div>
-                <div class="feature-item"><div class="feature-icon">🔧</div><div><strong>Опит</strong><p>Модерна техника</p></div></div>
+                <div class="feature-item">
+                    <div class="feature-icon">📄</div>
+                    <div>
+                        <strong>Фактури на Място</strong>
+                        <p>Издаваме документи веднага</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <div>
+                        <strong>ПОС Терминал</strong>
+                        <p>Плащане с всички карти</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <div>
+                        <strong>Revolut Плащания</strong>
+                        <p>Бърз и лесен превод</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <strong>Светкавична Реакция</strong>
+                        <p>15-30 минути в София</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <div>
+                        <strong>Лицензирани</strong>
+                        <p>100% законен транспорт</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div>
+                        <strong>Професионализъм</strong>
+                        <p>Модерна техника и опит</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <section>
-        <h2 class="section-title">Отзиви от Клиенти</h2>
-        <div class="reviews">
-            <div class="review-card"><div class="review-header"><span class="reviewer-name">Ivan Ivanov</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Отлична услуга! Бързо реагираха и решиха проблема професионално.</p></div>
-            <div class="review-card"><div class="review-header"><span class="reviewer-name">Мариян Асенов</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Коректен! Отзова се бързо и свърши чудесна работа! препоръчвам с 2 ръце!</p></div>
-            <div class="review-card"><div class="review-header"><span class="reviewer-name">Rositsa Yancheva</span><span class="stars">⭐⭐⭐⭐⭐</span></div><p>Много доволна от услугата. Професионално отношение и бърза реакция!</p></div>
-        </div>
-    </section>
-
-    <section id="gallery">
+   <section id="gallery">
         <h2 class="section-title">Галерия</h2>
         <div class="gallery">
             <img src="images/dark.webp" alt="Пътна помощ София" loading="lazy">
