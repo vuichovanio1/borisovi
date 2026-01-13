@@ -235,12 +235,14 @@
         }
         .hero { 
             position: relative; 
-            height: 100vh; 
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex; 
             align-items: center; 
             justify-content: center; 
             background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%); 
-            overflow: hidden; 
+            overflow: hidden;
+            padding: 2rem 1rem;
         }
         .hero::before { 
             content: ''; 
@@ -259,10 +261,11 @@
             z-index: 2; 
             text-align: center; 
             padding: 2rem; 
-            max-width: 1200px; 
+            max-width: 1200px;
+            width: 100%;
         }
         .logo { 
-            font-size: 3.5rem; 
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800; 
             background: var(--gradient); 
             -webkit-background-clip: text; 
@@ -276,20 +279,22 @@
             to { opacity: 1; transform: translateY(0); } 
         }
         .hero h1 { 
-            font-size: 4rem; 
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 800; 
             margin-bottom: 1rem; 
-            animation: slideUp 1s ease-out 0.2s both; 
+            animation: slideUp 1s ease-out 0.2s both;
+            line-height: 1.2;
         }
         @keyframes slideUp { 
             from { opacity: 0; transform: translateY(50px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
         .hero-subtitle { 
-            font-size: 1.5rem; 
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--accent); 
             margin-bottom: 2rem; 
-            animation: fadeIn 1s ease-out 0.4s both; 
+            animation: fadeIn 1s ease-out 0.4s both;
+            line-height: 1.6;
         }
         @keyframes fadeIn { 
             from { opacity: 0; } 
@@ -322,41 +327,36 @@
             transform: translateY(-3px); 
             box-shadow: 0 15px 40px rgba(255,107,0,0.5); 
         }
-        .btn-secondary { 
-            background: transparent; 
-            color: var(--light); 
-            border: 2px solid var(--primary); 
-        }
-        .btn-secondary:hover { 
-            background: var(--primary); 
-            transform: translateY(-3px); 
-        }
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
             animation: fadeIn 1s ease-out 0.8s both;
         }
         .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
         .social-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .facebook-btn { background: var(--blue); }
-        .google-btn { background: #4285F4; }
+        .google-btn { background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); }
+        .social-icon {
+            font-size: 1.5rem;
+        }
         .floating-buttons { 
             position: fixed; 
             bottom: 20px; 
@@ -403,7 +403,7 @@
             margin: 0 auto; 
         }
         .section-title { 
-            font-size: 3rem; 
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800; 
             text-align: center; 
             margin-bottom: 3rem; 
@@ -466,34 +466,90 @@
             z-index: 1; 
         }
         .features { 
-            background: rgba(26, 26, 46, 0.5); 
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(255,107,0,0.1) 100%);
             border-radius: 30px; 
-            padding: 3rem; 
-            margin-top: 3rem; 
+            padding: 4rem 3rem;
+            margin-top: 3rem;
+            border: 2px solid rgba(255,107,0,0.3);
+            box-shadow: 0 20px 60px rgba(255,107,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .features-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .features-intro h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .features-intro p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .features-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 2rem; 
-            margin-top: 2rem; 
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
         .feature-item { 
-            display: flex; 
-            align-items: center; 
-            gap: 1rem; 
-            padding: 1.5rem; 
-            background: rgba(255,107,0,0.1); 
-            border-radius: 15px; 
-            border: 1px solid rgba(255,107,0,0.2); 
-            transition: all 0.3s ease; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 2px solid rgba(255,107,0,0.3);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
         .feature-item:hover { 
-            background: rgba(255,107,0,0.2); 
-            transform: translateX(10px); 
+            background: rgba(255,107,0,0.15);
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(255,107,0,0.4);
         }
         .feature-icon { 
-            font-size: 2rem; 
-            min-width: 50px; 
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255,107,0,0.5));
+        }
+        .feature-item strong {
+            font-size: 1.4rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            color: #c0c0c0;
+            font-size: 1.1rem;
         }
         .gallery { 
             display: grid; 
@@ -552,17 +608,80 @@
         }
         footer { 
             text-align: center; 
-            padding: 2rem; 
+            padding: 3rem 2rem 2rem; 
             background: var(--secondary); 
             margin-top: 3rem; 
         }
+        .home-btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,0,0.3);
+        }
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,0,0.5);
+        }
+        .home-btn:active {
+            transform: translateY(-1px);
+        }
         @media (max-width: 768px) { 
-            .hero h1 { font-size: 2.5rem; } 
-            .logo { font-size: 2rem; } 
+            .hero {
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
             .section-title { font-size: 2rem; } 
-            .floating-buttons { gap: 15px; } 
+            .floating-buttons { 
+                gap: 15px;
+                bottom: 15px;
+            } 
             .floating-btn { width: 60px; height: 60px; font-size: 1.8rem; } 
-            .social-btn { width: 45px; height: 45px; font-size: 1.3rem; }
+            .social-btn { 
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .social-icon {
+                font-size: 1.3rem;
+            }
+            .features {
+                padding: 2rem 1.5rem;
+            }
+            .feature-item {
+                padding: 1.5rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+            .home-btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .social-links {
+                gap: 1rem;
+            }
+            .social-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .social-icon {
+                font-size: 1.2rem;
+            }
+            .home-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -579,59 +698,62 @@
             <p class="hero-subtitle">Бърза, надеждна и професионална помощ на пътя 24/7 в Житен и околностите</p>
             <div class="cta-buttons">
                 <a href="tel:0887999175" class="btn btn-primary" aria-label="Обадете се на 0887 999 175">📞 Обадете се: 0887 999 175</a>
-                <a href="#services" class="btn btn-secondary">Нашите Услуги в Житен</a>
             </div>
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61572449813260" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn" aria-label="Facebook страница" title="Последвайте ни във Facebook">📘</a>
-                <a href="https://maps.app.goo.gl/SNhyh8RmSehkzkZY0" target="_blank" rel="noopener noreferrer" class="social-btn google-btn" aria-label="Google Business профил" title="Вижте ни в Google Maps">📍</a>
+                <a href="https://www.facebook.com/profile.php?id=61572449813260" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn" aria-label="Facebook страница" title="Харесайте ни във Facebook">
+                    <span class="social-icon">👍</span>
+                    <span>Харесайте ни във Facebook</span>
+                </a>
             </div>
         </div>
     </section>
+
     <section id="services">
         <h2 class="section-title">Нашите Услуги в Житен</h2>
         <div class="services-grid">
-            <div class="service-card">
+            <article class="service-card">
                 <div class="service-icon">🚨</div>
                 <h3>Денонощна Пътна Помощ в Житен</h3>
                 <p>При аварии, ПТП и всякакви ситуации на пътя в Житен. Винаги на разположение за жителите на Житен!</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">🚛</div>
                 <h3>Лицензиран Транспорт в Житен</h3>
                 <p>Транспорт на всякакви МПС-та, мотоциклети, ATV и UTV с професионално оборудване в Житен.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">🏎️</div>
                 <h3>Специализирана Платформа в Житен</h3>
                 <p>За ниски, спортни и катастрофирали автомобили в Житен. Максимална грижа за вашето МПС.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">🅿️</div>
                 <h3>Изваждане от Гаражи в Житен</h3>
                 <p>Специализирана услуга за изваждане на неподвижни автомобили от подземни гаражи в Житен.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">⛽</div>
                 <h3>Доставка на Гориво в Житен</h3>
                 <p>Останали без гориво в Житен? Доставяме директно до вас.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">🛞</div>
                 <h3>Смяна на Гума в Житен</h3>
                 <p>Бърза смяна на гума на място в Житен, за да продължите пътуването си.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">🔋</div>
                 <h3>Подаване на Ток в Житен</h3>
                 <p>Проблеми с акумулатора в Житен? Подаваме ток и ви подпомагаме.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card">
                 <div class="service-icon">👥</div>
                 <h3>Извозване на Пътници в Житен</h3>
                 <p>Извозване на пътници от авариралия автомобил в Житен до безопасно място.</p>
-            </div>
+            </article>
         </div>
     </section>
+
     <section>
         <h2 class="section-title">Защо Да Изберете Нас в Житен?</h2>
         <div class="features">
@@ -681,6 +803,7 @@
             </div>
         </div>
     </section>
+
     <section id="gallery">
         <h2 class="section-title">Галерия от Услуги в Житен</h2>
         <div class="gallery">
@@ -692,6 +815,7 @@
             <img src="../images/pik.webp" alt="Пикап транспорт в Житен" loading="lazy">
         </div>
     </section>
+
     <section>
         <div class="contact-section">
             <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Свържете Се с Нас в Житен</h2>
@@ -705,7 +829,7 @@
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <strong>Адрес</strong>
-                    <p style="color: white;">ул. „Латин Колев\" 1д<br>1238 Житен, България</p>
+                    <p style="color: white;">ул. „Латин Колев" 1д<br>1238 Житен, България</p>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">🕐</div>
@@ -718,10 +842,13 @@
             </div>
         </div>
     </section>
+
     <footer>
+        <a href="/" class="home-btn">🏠 Към Главната Страница</a>
         <p>© 2026 Пътна Помощ "Борисови Ауто" ЕООД. Всички права запазени.</p>
         <p style="margin-top: 1rem; color: #888;">Лицензирана пътна помощ в Житен | Денонощна услуга 24/7</p>
     </footer>
+
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
